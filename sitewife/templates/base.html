@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+    <title>{% block title %}My Site{% endblock %}</title>
+    <link type="text/css" href="{% static 'test_app1/CSS/styles.css' %}" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        {% block header %}
+        <h1>Психолог Пашкевич Карина Погосовна</h1>
+        {% endblock %}
+    </header>
+    <nav>
+        {% block mainmenu %}
+        <ul>
+            <li><a href="{% url 'home' %}">Главная страница</a></li>
+            <li><a href="{% url 'contacts' %}">Контакты</a></li>
+			<li><a href="{% url 'reviews' %}">Отзывы</a></li>
+        </ul>
+        {% endblock %}
+    </nav>
+    <main>
+        {% block content %}
+        <p>This is the main content area.</p>
+        {% endblock %}
+    </main>
+    <footer>
+        {% block footer %}
+        <p>разработка сайта - Пашкевич А.В. 2025 г.</p>
+        {% endblock %}
+    </footer>
+<script src="{% static 'js/animations.js' %}"></script>
+</body>
+</html>
