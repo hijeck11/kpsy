@@ -29,4 +29,33 @@
         <p>Работаю по таким методикам как:</p>
     </div>
 </div>
+
+<div class="about-me">
+    <div class="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{% static 'test_app1/images/serf1.jpg' %}" alt="Фото 1">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'test_app1/images/serf2.jpg' %}" alt="Фото 2">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'test_app1/images/serf3.jpg' %}" alt="Фото 3">
+            </div>
+            <!-- Добавьте больше фотографий по аналогии -->
+        </div>
+        <!-- Стрелки для навигации -->
+        <button class="carousel-control prev">&#10094;</button>
+        <button class="carousel-control next">&#10095;</button>
+        <!-- Индикаторы (точки) -->
+        <div class="carousel-indicators">
+            <span class="indicator active"></span>
+            <span class="indicator"></span>
+            <span class="indicator"></span>
+            <!-- Добавьте больше точек по количеству фотографий -->
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'js/slider.js' %}"></script>
 {% endblock %}

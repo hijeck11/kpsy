@@ -156,6 +156,98 @@ footer {
         max-width: 200px;
         margin-bottom: 10px;
     }
+}
 
+.carousel {
+    position: relative;
+    max-width: 800px;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-item {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.carousel-item img {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+}
+
+/* Стрелки для навигации */
+.carousel-control {
+    position: absolute; /* Абсолютное позиционирование внутри карусели */
+    top: 50%; /* Размещаем стрелки на 50% высоты контейнера */
+    transform: translateY(-50%); /* Центрируем стрелку по вертикали */
+    background: none; /* Убираем фон кнопки */
+    color: white; /* Делаем стрелки белыми */
+    border: none; /* Убираем границы */
+    padding: 10px; /* Делаем небольшие отступы */
+    cursor: pointer; /* Делаем кнопку кликабельной */
+    font-size: 32px; /* Увеличиваем размер стрелки */
+    transition: opacity 0.3s ease, transform 0.2s ease; /* Добавляем плавные анимации */
+}
+
+/* Эффект при наведении */
+.carousel-control:hover {
+    transform: translateY(-50%) scale(1.2); /* Немного увеличиваем стрелку */
+}
+
+/* Стрелка "назад" (влево) */
+.carousel-control.prev {
+    left: 10px; /* Отступ от левого края */
+}
+
+/* Стрелка "вперед" (вправо) */
+.carousel-control.next {
+    right: 10px; /* Отступ от правого края */
+}
+
+/* Скрываем стрелки, если они не нужны */
+.carousel-control.hidden {
+    opacity: 0; /* Делаем стрелку полностью прозрачной */
+    pointer-events: none; /* Отключаем кликабельность */
+}
+
+/* Эффект при нажатии */
+.carousel-control:active {
+    transform: translateY(-50%) scale(0.9); /* Немного уменьшаем стрелку при нажатии */
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+    .carousel-control {
+        font-size: 26px; /* Делаем стрелки чуть меньше */
+    }
+}
+
+/* Индикаторы (точки) */
+.carousel-indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 5px;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.indicator.active {
+    background-color: white;
 }
