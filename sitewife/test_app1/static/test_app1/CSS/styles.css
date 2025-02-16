@@ -10,7 +10,10 @@ body {
     font-family: 'Poiret One', sans-serif;
     line-height: 1.6;
     color: #333;
-    background: linear-gradient(#D8C3A5, #EAE7DC) fixed;
+    background-image: url("/static/test_app1/images/fon2.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    /*background: linear-gradient(#D8C3A5, #EAE7DC) fixed;*/
     margin: 0;
     padding: 0;
 }
