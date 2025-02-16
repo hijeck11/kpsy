@@ -5,18 +5,21 @@
 
 {% block content %}
 
-
+<div class="fancy-text">
+    Здесь Вы сможете обрести гармонию и обрести себя!
+</div>
 
 <div class="about-me">
-    <img src="{% static 'test_app1/images/main3.jpg' %}" alt="Фотография психолога" class="profile-photo">
+    <img src="{% static 'test_app1/images/main5.jpg' %}" alt="Фотография психолога" class="profile-photo">
     <div class="description">
         <h2>Психолог Пашкевич Карина</h2>
         <p>Здравствуйте! Меня зовут Пашкевич Карина Погосовна, я профессиональный психолог с опытом работы более 10 лет.</p>
         <p>Специализируюсь на помощи в решении личных, семейных и профессиональных проблем. Моя цель — помочь вам найти гармонию и уверенность в себе.</p>
     </div>
 </div>
+
 <div class="about-me">
-    <img src="{% static 'test_app1/images/main.jpg' %}" alt="Фотография психолога" class="profile-photo-left">
+    <img src="{% static 'test_app1/images/main3.jpg' %}" alt="Фотография психолога" class="profile-photo-left">
     <div class="description-left">
         <p>У меня высшее образование, обучалась я в БГПУ им. Максима Танка в институте психологии. Различного рода имею повышения квалификации ( их можно посмотреть ниже в разделе «Образование»). Также обучалась в Международной школе профессий, где расширяла свои знания и умения в теории и практике.</p>
         <p>Работаю с семейными парами, индивидуально и с детками.</p>
@@ -31,8 +34,6 @@
         <p>Работаю по таким методикам как:</p>
     </div>
 </div>
-
-<script src="{% static 'js/slider.js' %}"></script>
 
 <div class="about-me">
     <div class="carousel">
@@ -62,8 +63,6 @@
         </div>
     </div>
 </div>
-
-<script src="{% static 'js/slider.js' %}"></script>
 
 <div class="about-me">
     <div class="carousel">
@@ -124,10 +123,6 @@
     </div>
 </div>
 
-<script src="https://api-maps.yandex.ru/2.1/?apikey=0a049687-d13b-41c1-b03e-866902898911&lang=ru_RU" type="text/javascript"></script>
-<script src="{% static 'js/icon_customImage.js' %}"></script>
-
-
 <div class="contacts">
     <h2>Мои контакты</h2>
 
@@ -139,7 +134,7 @@
         <div class="contact-info">
             <p>Адрес: г. Минск, ул. Якуба Колоса, 37</p>
             <p>Телефон: +375 29 6236583</p>
-            <p>Email: <a href="mailto:email@example.com">email@example.com</a></p>
+            <p>Email: <a href="mailto:psichologist.p.karina45@gmail.com">psichologist.p.karina45@gmail.com</a></p>
         </div>
 </div>
 
@@ -155,5 +150,10 @@
          <img src="{% static 'test_app1/images/instagram-ico.png' %}" alt="Instagram">
      </a>
  </div>
+
+<script src="{% static 'js/animations.js' %}"></script>
+<script src="https://api-maps.yandex.ru/2.1/?apikey=0a049687-d13b-41c1-b03e-866902898911&lang=ru_RU" type="text/javascript"></script>
+<script src="{% static 'js/icon_customImage.js' %}"></script>
+<script src="{% static 'js/slider.js' %}"></script>
 
 {% endblock %}

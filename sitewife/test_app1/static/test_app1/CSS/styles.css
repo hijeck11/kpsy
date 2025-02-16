@@ -5,18 +5,41 @@
     box-sizing: border-box;
 }
 
+.fancy-text {
+    font-family: 'Poiret One', sans-serif;
+    font-size: 5rem; /* Размер шрифта */
+    line-height: 1.8; /* Межстрочный интервал */
+    color: #333; /* Цвет текста */
+    font-weight: 500; /* Средняя жирность */
+    margin: 40px auto; /* Добавляем auto для центрирования */
+    max-width: 70%; /* Ограничиваем ширину */
+    padding: 20px; /* Добавляем отступы */
+    text-align: center;
+    margin-bottom: 40px; /* Отступ снизу */
+}
 
-/* Стили для body */
 body {
     font-family: 'Poiret One', sans-serif;
     line-height: 1.6;
     color: #333;
-    background-image: url("/static/test_app1/images/fon2.jpg");
+    background-image: url("/static/test_app1/images/fon.jpg");
     background-attachment: fixed;
     background-position: center;
+    background-size: cover;
     /*background: linear-gradient(#D8C3A5, #EAE7DC) fixed;*/
     margin: 0;
     padding: 0;
+}
+
+
+
+.scroll-element {
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.scroll-element.visible {
+    opacity: 1;
 }
 
 /* Стили для header */
@@ -32,6 +55,7 @@ header {
 header h1 {
     font-size: 2rem;
     margin: 0;
+    font-weight: 100;
 }
 
 header .phone {
@@ -70,7 +94,7 @@ nav ul li a:hover {
 /* Основная область */
 main {
     padding: 20px;
-    background: white;
+    background: linear-gradient(#EAE7DC, #D8C3A5) fixed;
     margin: 20px auto;
     max-width: 1300px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -118,10 +142,9 @@ footer {
     transform: translateY(0);
 }
 
-
-
 .profile-photo {
     width: 400px; /* Сделаем чуть меньше */
+    /*max-height: 500px;*/
     height: auto;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -130,6 +153,7 @@ footer {
 
 .profile-photo-left {
     width: 400px; /* Сделаем чуть меньше */
+    /*max-height: 500px;*/
     height: auto;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -151,24 +175,6 @@ footer {
     color: #555;
     text-align: justify; /* Выровняем текст */
     order: 1;
-}
-
-@media (max-width: 768px) {
-    .about-me {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .profile-photo {
-        width: 70%;
-        max-width: 200px;
-        margin-bottom: 10px;
-    }
-    .profile-photo-left {
-        width: 70%;
-        max-width: 200px;
-        margin-bottom: 10px;
-    }
 }
 
 .carousel {
@@ -285,8 +291,6 @@ footer {
     text-decoration: underline;
 }
 
-
-
 .social-links {
     display: flex;            /* Используем Flexbox для горизонтального расположения */
     justify-content: center;  /* Центрируем иконки по горизонтали */
@@ -334,5 +338,27 @@ footer {
     .social-links img {
         width: 35px;          /* Уменьшаем размер иконок на мобильных устройствах */
         height: 35px;
+    }
+
+    .about-me {
+        flex-direction: column;
+        text-align: center;
+        max-width: 90%; /* Ограничиваем ширину */
+        margin: 20px auto; /* Центрируем */
+        padding: 15px; /* Добавляем отступ */
+    }
+
+    .profile-photo,
+    .profile-photo-left {
+        width: 60%; /* Уменьшаем ширину фото */
+        max-width: 180px; /* Делаем меньше */
+        height: auto; /* Сохраняем пропорции */
+        margin-bottom: 10px;
+    }
+
+    .description,
+    .description-left {
+        font-size: 1.2rem; /* Делаем текст чуть меньше */
+        line-height: 1.5; /* Уменьшаем расстояние между строками */
     }
 }
