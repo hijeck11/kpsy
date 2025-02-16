@@ -55,3 +55,4 @@ document.addEventListener("DOMContentLoaded", function () {
         updateCarousel(); // Центрируем первый слайд
     });
 });
+
