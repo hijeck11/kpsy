@@ -323,6 +323,129 @@ footer {
     margin: 0 auto;           /* Центрируем иконку внутри контейнера */
 }
 
+.test-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрирует элементы по горизонтали */
+    justify-content: flex-start; /* Элементы будут располагаться сверху */
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.test-container {
+    display: flex;              /* Включаем flexbox */
+    justify-content: space-between; /* Размещаем элементы с промежутками */
+    gap: 20px;                  /* Добавляем отступы между элементами */
+/*    max-width: 800px;          /* Можно увеличить ширину контейнера для комфортного размещения */
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.test-btn {
+    background-color: #4CAF50; /* Цвет фона по умолчанию */
+    color: white;              /* Цвет текста */
+    padding: 12px 24px;        /* Отступы внутри кнопки */
+    border: none;              /* Убираем рамку */
+    border-radius: 8px;        /* Скругляем углы */
+    font-size: 16px;           /* Размер шрифта */
+    cursor: pointer;          /* Курсор изменится на указатель */
+    transition: all 0.3s ease; /* Плавные переходы */
+    text-decoration: none;     /* Убираем подчеркивание, если это ссылка */
+}
+
+.test-btn:hover {
+    background-color: #45a049; /* Цвет фона при наведении */
+}
+
+.test-btn:active {
+    background-color: #388e3c; /* Цвет фона при нажатии */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Тень при нажатии */
+    transform: translateY(2px); /* Легкое смещение кнопки вниз */
+}
+
+.test-card {
+    flex: 1;
+    padding: 20px;
+    background: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column; /* Сделаем элементы вертикальными */
+    justify-content: space-between; /* Равномерно распределим элементы внутри карточки */
+}
+/* Заголовок теста */
+.test-container h2 {
+    font-size: 2.5rem;
+    color: #2a3d42;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Вопрос */
+#question {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Контейнер с ответами */
+#answers {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Кнопки ответов */
+.answer-btn {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.answer-btn:hover {
+    background: #D8C3A5;
+    transform: scale(1.05);
+}
+
+/* Прогресс теста */
+#progress {
+    margin-top: 20px;
+    width: 100%;
+    height: 35px; /* Сделал чуть выше */
+    background: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Заполнение прогресса */
+#progress div {
+    height: 100%;
+    width: 0%; /* Прогресс начинается с 0 */
+    background: linear-gradient(90deg, #4CAF50, #2E7D32);
+    transition: width 0.4s ease-in-out;
+}
+
+/* Результаты теста */
+#result {
+    font-size: 1.8rem;
+    color: #2a3d42;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+
+
+
 @media (max-width: 768px) {
     .carousel-item img {
         width: 60%;  /* Уменьшаем изображение на мобильных устройствах */

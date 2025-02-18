@@ -123,6 +123,37 @@
     </div>
 </div>
 
+<div class="about-me">
+    <div class="test-section">
+        <h2>Пройдите тест и узнайте больше о себе!</h2>
+        <div class="test-container">
+            <div class="test-card">
+                <h3>Уровень стресса</h3>
+                <p>Определите свой уровень стресса за 2 минуты.</p>
+                <button class="test-btn" onclick="startTest()">Пройти тест</button>
+
+                <!-- Скрытый блок с опросом -->
+                <div class="test-form" id="test-form" style="display: none;">
+                    <div id="question"></div>
+                    <div id="answers"></div>
+                    <div id="progress"></div>
+                    <div id="result" class="hidden"></div>
+                </div>
+            </div>
+            <div class="test-card">
+                <h3>Тип личности</h3>
+                <p>Узнайте свой психологический портрет.</p>
+                <a href="test-personality.html" class="test-btn">Пройти тест</a>
+            </div>
+            <div class="test-card">
+                <h3>Склонность к тревожности</h3>
+                <p>Оцените уровень тревожности и получите рекомендации.</p>
+                <a href="test-anxiety.html" class="test-btn">Пройти тест</a>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="contacts">
     <h2>Мои контакты</h2>
 
@@ -155,5 +186,5 @@
 <script src="https://api-maps.yandex.ru/2.1/?apikey=0a049687-d13b-41c1-b03e-866902898911&lang=ru_RU" type="text/javascript"></script>
 <script src="{% static 'js/icon_customImage.js' %}"></script>
 <script src="{% static 'js/slider.js' %}"></script>
-
+<script src="{% static 'js/test-script.js' %}"></script>
 {% endblock %}
