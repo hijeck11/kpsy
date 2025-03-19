@@ -108,7 +108,7 @@ function startTest() {
     testButton.style.display = 'none';  // Скрываем кнопку
 
     showQuestion();  // Показываем первый вопрос
-}
+}EE
 
 function showQuestion() {
     const currentQuestion = questions[currentQuestionIndex];

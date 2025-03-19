@@ -179,36 +179,41 @@ footer {
 
 .carousel {
     position: relative;
-    max-width: 550px;
-    margin: 20px auto;
-    overflow: hidden;
-    border-radius: 10px;
+    max-height: 80vh; /* Максимальная высота контейнера */
+    max-width: 850px; /* Максимальная ширина контейнера */
+    margin: 20px auto; /* Центрирование контейнера */
+    overflow: hidden; /* Скрывает всё, что выходит за пределы */
+    border-radius: 10px; /* Скругление углов */
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: center; /* Центрирование по вертикали */
+    justify-content: center; /* Центрирование по горизонтали */
+    height: 700px; /* Фиксированная высота контейнера */
+    width: 100%; /* Ширина контейнера (можно задать фиксированную, например, 750px) */
 }
 
 .carousel-track {
     display: flex;
     transition: transform 0.5s ease-in-out;
     width: 100%;
+    height: 100%; /* Занимаем всю высоту контейнера */
 }
 
 .carousel-item {
-    flex: 0 0 100%;
-    opacity: 0.5;
-    transform: scale(0.8);
-    transition: transform 0.5s ease, opacity 0.5s ease;
+    flex: 0 0 100%; /* Фиксированная ширина для каждого слайда */
+    text-align: center;
     display: flex;
-    justify-content: center;
+    align-items: center; /* Центрирование по вертикали */
+    justify-content: center; /* Центрирование по горизонтали */
+    height: 100%; /* Занимаем всю высоту контейнера */
 }
 
 .carousel-item img {
-    width: 80%;  /* Уменьшаем ширину изображения */
-    height: auto;  /* Высота сохраняет пропорции */
-    object-fit: cover; /* Обеспечивает, что изображение будет покрывать весь контейнер, не искажая пропорции */
-    border-radius: 10px; /* Радиус для скругленных углов */
+    max-width: 100%; /* Ограничение по ширине */
+    max-height: 100%; /* Ограничение по высоте */
+    object-fit: contain; /* Сохраняет пропорции изображения */
+    border-radius: 10px; /* Скругление углов изображения */
 }
+
 
 .carousel-item.active {
     opacity: 1;
