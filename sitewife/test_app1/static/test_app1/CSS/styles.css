@@ -7,7 +7,7 @@
 
 .fancy-text {
     font-family: 'Poiret One', sans-serif;
-    font-size: 5rem; /* Размер шрифта */
+    font-size: 2rem; /* Размер шрифта */
     line-height: 1.8; /* Межстрочный интервал */
     color: #333; /* Цвет текста */
     font-weight: 500; /* Средняя жирность */
@@ -44,8 +44,8 @@ body {
 
 /* Стили для header */
 header {
-    background: #4a4847;
-    color: white;
+    background: #D6E06B;
+    color: black;
     padding: 10px 15px;
     display: flex;
     justify-content: space-between;
@@ -135,6 +135,69 @@ footer {
     background: white; /* Оставляем белый фон */
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    justify-content: center;
+}
+
+.about-me-reviews {
+    display: flex;
+    flex-direction: column; /* Располагаем элементы по вертикали */
+    align-items: center; /* Центрируем по горизонтали */
+    text-align: center; /* Центрируем текст */
+    width: 100%; /* Убедитесь, что блок занимает всю ширину */
+}
+
+.reviews-title {
+    margin-bottom: 20px; /* Отступ снизу для заголовка */
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Оформление для галереи отзывов */
+.reviews-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center; /* Центрируем изображения */
+    margin: 0;
+    padding: 0;
+}
+
+.review-item {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Плавный переход */
+}
+
+.about-me.reviews.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Модальное окно для увеличенного изображения */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal img {
+    max-width: 80%;
+    max-height: 80%;
+    transition: transform 0.3s ease;
+}
+
+/* Когда модальное окно активно */
+.modal.active {
+    display: flex;
 }
 
 .about-me.show {
@@ -191,6 +254,39 @@ footer {
     width: 100%; /* Ширина контейнера (можно задать фиксированную, например, 750px) */
 }
 
+/* Заголовок "Отзывы" */
+.reviews-title {
+    text-align: center; /* Центрируем текст */
+    font-size: 2.5rem;  /* Размер шрифта */
+    margin-bottom: 30px; /* Отступ снизу */
+    color: #333;        /* Цвет текста */
+    font-weight: bold;  /* Жирный текст */
+}
+
+/* Контейнер для миниатюр */
+.reviews-gallery {
+    display: flex;                  /* Используем flexbox */
+    flex-wrap: wrap;                 /* Позволяет переносить изображения на следующую строку */
+    justify-content: center;        /* Центрируем элементы */
+    gap: 15px;                      /* Расстояние между изображениями */
+}
+
+/* Стили для миниатюрных изображений */
+.review-item {
+    width: 150px;                   /* Ширина изображения */
+    height: 150px;                  /* Высота изображения */
+    object-fit: cover;              /* Изображения не искажаются */
+    border-radius: 10px;            /* Скругление углов */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Легкая тень */
+    transition: transform 0.3s ease; /* Плавный эффект при наведении */
+}
+
+.review-item:hover {
+    transform: scale(1.1);          /* Увеличиваем изображение при наведении */
+}
+
+
+
 .carousel-track {
     display: flex;
     transition: transform 0.5s ease-in-out;
@@ -243,6 +339,62 @@ footer {
 
 .carousel-control:hover {
     color: #555;
+}
+
+/* Стиль для кнопки, которая будет открывать/закрывать блок */
+.toggle-rights-btn {
+    background-color: #4CAF50; /* Зеленый фон для кнопки */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    display: block; /* Чтобы кнопка была на новой строке */
+    margin-left: auto; /* Центрируем кнопку по горизонтали */
+    margin-right: auto; /* Центрируем кнопку по горизонтали */
+}
+
+/* Скрываем блок по умолчанию */
+.rights-content {
+    max-height: 0; /* Начальная высота = 0 */
+    overflow: hidden; /* Скрываем контент за границами блока */
+    opacity: 0;
+    margin-top: 0;
+    transition: max-height 0.8s ease-in-out, opacity 0.8s ease-in-out, margin-top 0.8s ease-in-out;
+}
+
+/* Стиль для заголовков внутри контента */
+.rights-content h3 {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center; /* Центрируем заголовки */
+}
+
+/* Стиль для списков внутри контента */
+.rights-content ul {
+    font-size: 22px; /* Было 16px, стало больше */
+    list-style-type: disc;
+    padding-left: 20px;
+    text-align: left; /* Выравнивание текста в списке по левому краю */
+}
+
+.rights-content ul li {
+    margin-bottom: 8px;
+}
+
+/* Опциональные стили для анимации */
+.rights-content {
+    transition: all 0.3s ease;
+}
+
+/* Стиль для анимации открытия */
+.rights-content.show {
+    max-height: 500px; /* Можно увеличить, если текст длинный */
+    opacity: 1;
+    margin-top: 20px; /* Добавляем отступ плавно */
 }
 
 /* Индикаторы */
@@ -341,12 +493,15 @@ footer {
     display: flex;              /* Включаем flexbox */
     justify-content: space-between; /* Размещаем элементы с промежутками */
     gap: 20px;                  /* Добавляем отступы между элементами */
-/*    max-width: 800px;          /* Можно увеличить ширину контейнера для комфортного размещения */
+    max-width: 800px; /* Увеличенная ширина */
+    width: 100%;
+    min-width: 800px; /* Минимальная ширина, чтобы не сужалось */
     margin: 40px auto;
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     text-align: center;
+
 }
 
 .test-btn {
@@ -395,6 +550,9 @@ footer {
     font-size: 1.8rem;
     color: #333;
     margin-bottom: 20px;
+    max-width: 100%;
+    width: 100%;
+    word-wrap: break-word; /* Перенос длинных слов */
 }
 
 /* Контейнер с ответами */
@@ -402,6 +560,8 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    max-width: 100%;
+    width: 100%;
 }
 
 /* Кнопки ответов */

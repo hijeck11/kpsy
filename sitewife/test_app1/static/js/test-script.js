@@ -93,6 +93,7 @@ const questions = [
 
 let currentQuestionIndex = 0;
 let totalScore = 0;
+let testFinished = false;
 
 const questionEl = document.getElementById("question");
 const answersEl = document.getElementById("answers");
@@ -128,6 +129,8 @@ function showQuestion() {
 }
 
 function selectAnswer(score) {
+    if (testFinished) return; // Если тест завершен, не даем изменять результат
+
     totalScore += score;
     currentQuestionIndex++;
 
@@ -139,6 +142,7 @@ function selectAnswer(score) {
 }
 
 function showResult() {
+    testFinished = true; // Блокируем дальнейшие изменения результата
     questionEl.classList.add("hidden");
     answersEl.classList.add("hidden");
     progressEl.classList.add("hidden");
