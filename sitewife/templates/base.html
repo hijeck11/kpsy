@@ -1,6 +1,5 @@
 {% load static %}
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,21 +11,10 @@
      <link rel="icon" href="{% static 'test_app1/images/favicon.ico' %}" type="image/x-icon">
 </head>
 <body>
-    <header>
-        {% block header %}
-            <h1>Психолог Пашкевич Карина Погосовна</h1>
-            <div class="phone">+375 (29) 623-65-83</div>
-        {% endblock %}
-    </header>
     <main>
         {% block content %}
 
         {% endblock %}
     </main>
-    <footer>
-        {% block footer %}
-        <p>разработка сайта - Пашкевич А.В. 2025 г.</p>
-        {% endblock %}
-    </footer>
 </body>
 </html>
