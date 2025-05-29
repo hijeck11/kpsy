@@ -1,25 +1,35 @@
-
 document.addEventListener("DOMContentLoaded", function () {
-    const aboutSections = document.querySelectorAll(".about-me");
+    // 1. Плавное появление about-me и about-me-combined
+    const aboutSections = document.querySelectorAll(".about-me, .about-me-combined, .work-section");
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add("show");
-                entry.target.classList.add("visible"); // Фикс для верхнего блока
             } else {
-                // Убираем только если пользователь **прокрутил далеко вниз**
-                setTimeout(() => {
-                    if (!entry.isIntersecting && entry.target.classList.contains("visible")) {
-                        entry.target.classList.remove("show");
-                    }
-                }, 500); // Задержка перед скрытием (можно увеличить)
+                entry.target.classList.remove("show");
             }
         });
-    }, { threshold: 0.3 }); // Изменено на 0.6, чтобы не срабатывало слишком часто
+    }, { threshold: 0.2 });
 
     aboutSections.forEach(section => {
         observer.observe(section);
     });
-});
 
+    // 2. Анимация выезда только для .mainup
+    const mainupSection = document.querySelector(".mainup");
+
+    if (mainupSection) {
+        const mainupObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                } else {
+                    entry.target.classList.remove("show");
+                }
+            });
+        }, { threshold: 0.3 });
+
+        mainupObserver.observe(mainupSection);
+    }
+});

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Страница не найдена — 404{% endblock %}
+
+{% block content %}
+  <div class="work-section">
+    <h1>Страница не найдена</h1>
+    <h3>Извините, запрошенная страница не существует.</h3>
+    <a href="{% url 'home' %}" style="text-decoration: none;">
+      <button class="toggle-rights-btn">
+        Вернуться на главную
+      </button>
+    </a>
+  </div>
+{% endblock %}

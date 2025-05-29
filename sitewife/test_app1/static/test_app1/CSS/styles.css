@@ -5,24 +5,64 @@
     box-sizing: border-box;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-/* Стили для body */
+.fancy-text {
+    font-family: 'Poiret One', sans-serif;
+    font-size: 2rem; /* Размер шрифта */
+    line-height: 1.8; /* Межстрочный интервал */
+    color: #333; /* Цвет текста */
+    font-weight: 500; /* Средняя жирность */
+    margin: 40px auto; /* Добавляем auto для центрирования */
+    max-width: 70%; /* Ограничиваем ширину */
+    padding: 20px; /* Добавляем отступы */
+    text-align: center;
+    margin-bottom: 40px; /* Отступ снизу */
+}
+
 body {
     font-family: 'Poiret One', sans-serif;
     line-height: 1.6;
     color: #333;
-    background-image: url("/static/test_app1/images/fon2.jpg");
+    background-image: url("/static/test_app1/images/fon.jpg");
     background-attachment: fixed;
     background-position: center;
+    background-size: cover;
     /*background: linear-gradient(#D8C3A5, #EAE7DC) fixed;*/
     margin: 0;
     padding: 0;
 }
 
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 14px;
+  z-index: 1000; /* чтобы футер был поверх других элементов */
+}
+
+.scroll-element {
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.scroll-element.visible {
+    opacity: 1;
+}
+
 /* Стили для header */
 header {
-    background: #4a4847;
-    color: white;
+    background: #D6E06B;
+    color: black;
     padding: 10px 15px;
     display: flex;
     justify-content: space-between;
@@ -32,6 +72,7 @@ header {
 header h1 {
     font-size: 2rem;
     margin: 0;
+    font-weight: 100;
 }
 
 header .phone {
@@ -70,7 +111,7 @@ nav ul li a:hover {
 /* Основная область */
 main {
     padding: 20px;
-    background: white;
+    background: linear-gradient(#EAE7DC, #D8C3A5) fixed;
     margin: 20px auto;
     max-width: 1300px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -79,23 +120,58 @@ main {
 
 /* Стили для заголовков */
 h2 {
-    color: ##2a3d42;
+    color: #2a3d42;
     margin-bottom: 10px;
 }
 
-/* Стили для footer */
 
+.mainup {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin: 40px auto; /* Добавляем auto для центрирования */
+    max-width: 90%; /* Ограничиваем ширину */
+    padding: 20px; /* Добавляем отступы */
+    justify-content: center;
+}
 
-/* Для ссылок в footer */
-footer {
-   text-align: center;
-   position:fixed;
-   left:0px;
-   bottom:0px;
-   height:30px;
-   width:100%;
-   background: #333;
-   color: white;
+.mainup.reverse {
+    flex-direction: row-reverse;
+}
+
+.mainup .profile-photo {
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: all 0.8s ease-out;
+}
+
+.mainup .description {
+    opacity: 0;
+    transform: translateX(100px);
+    transition: all 0.8s ease-out;
+}
+
+/* При появлении на экране — включаем */
+.mainup.show .profile-photo {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.mainup.show .description {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.about-me-container {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    margin: 40px auto;
+    max-width: 90%;
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2)
 }
 
 .about-me {
@@ -111,6 +187,7 @@ footer {
     background: white; /* Оставляем белый фон */
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    justify-content: center;
 }
 
 .about-me.show {
@@ -118,22 +195,111 @@ footer {
     transform: translateY(0);
 }
 
+.about-me.reverse {
+    flex-direction: row-reverse;
+}
 
+.about-me-combined {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    margin: 40px auto;
+    max-width: 90%;
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.about-me-combined.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Стили для секций внутри объединенного блока */
+.about-me-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.about-me-section.reverse {
+    flex-direction: row-reverse;
+}
+
+
+.about-me-reviews {
+    display: flex;
+    flex-direction: column; /* Располагаем элементы по вертикали */
+    align-items: center; /* Центрируем по горизонтали */
+    text-align: center; /* Центрируем текст */
+    width: 100%; /* Убедитесь, что блок занимает всю ширину */
+}
+
+.reviews-title {
+    margin-bottom: 20px; /* Отступ снизу для заголовка */
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Оформление для галереи отзывов */
+.reviews-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center; /* Центрируем изображения */
+    margin: 0;
+    padding: 0;
+}
+
+.review-item {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Плавный переход */
+}
+
+.about-me.reviews.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Модальное окно для увеличенного изображения */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal img {
+    max-width: 80%;
+    max-height: 80%;
+    transition: transform 0.3s ease;
+}
+
+/* Когда модальное окно активно */
+.modal.active {
+    display: flex;
+}
 
 .profile-photo {
     width: 400px; /* Сделаем чуть меньше */
+    /*max-height: 500px;*/
     height: auto;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-/*    border: 5px solid #eee; /* Добавим мягкую рамку */
-}
+    order: 1;
 
-.profile-photo-left {
-    width: 400px; /* Сделаем чуть меньше */
-    height: auto;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    order: 2;
+/*    border: 5px solid #eee; /* Добавим мягкую рамку */
 }
 
 .description {
@@ -142,66 +308,85 @@ footer {
     line-height: 1.8;
     color: #555;
     text-align: justify; /* Выровняем текст */
+    order: 2;
 }
 
-.description-left {
-    flex: 1;
-    font-size: 1.5rem;
-    line-height: 1.8;
-    color: #555;
-    text-align: justify; /* Выровняем текст */
-    order: 1;
+.mainup.show .profile-photo {
+    opacity: 1;
+    transform: translateX(0);
 }
 
-@media (max-width: 768px) {
-    .about-me {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .profile-photo {
-        width: 70%;
-        max-width: 200px;
-        margin-bottom: 10px;
-    }
-    .profile-photo-left {
-        width: 70%;
-        max-width: 200px;
-        margin-bottom: 10px;
-    }
+.mainup.show .description {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .carousel {
     position: relative;
-    max-width: 550px;
-    margin: 20px auto;
-    overflow: hidden;
-    border-radius: 10px;
+    max-height: 80vh; /* Максимальная высота контейнера */
+    max-width: 850px; /* Максимальная ширина контейнера */
+    margin: 20px auto; /* Центрирование контейнера */
+    overflow: hidden; /* Скрывает всё, что выходит за пределы */
+    border-radius: 10px; /* Скругление углов */
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: center; /* Центрирование по вертикали */
+    justify-content: center; /* Центрирование по горизонтали */
+    height: 700px; /* Фиксированная высота контейнера */
+    width: 100%; /* Ширина контейнера (можно задать фиксированную, например, 750px) */
+}
+
+/* Заголовок "Отзывы" */
+.reviews-title {
+    text-align: center; /* Центрируем текст */
+    font-size: 2.5rem;  /* Размер шрифта */
+    margin-bottom: 30px; /* Отступ снизу */
+    color: #333;        /* Цвет текста */
+    font-weight: bold;  /* Жирный текст */
+}
+
+/* Контейнер для миниатюр */
+.reviews-gallery {
+    display: flex;                  /* Используем flexbox */
+    flex-wrap: wrap;                 /* Позволяет переносить изображения на следующую строку */
+    justify-content: center;        /* Центрируем элементы */
+    gap: 15px;                      /* Расстояние между изображениями */
+}
+
+/* Стили для миниатюрных изображений */
+.review-item {
+    width: 350px;                   /* Ширина изображения */
+    height: 350px;                  /* Высота изображения */
+    object-fit: contain;              /* Изображения не искажаются */
+    border-radius: 10px;            /* Скругление углов */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Легкая тень */
+    transition: transform 0.3s ease; /* Плавный эффект при наведении */
+}
+
+.review-item:hover {
+    transform: scale(1.1);          /* Увеличиваем изображение при наведении */
 }
 
 .carousel-track {
     display: flex;
     transition: transform 0.5s ease-in-out;
     width: 100%;
+    height: 100%; /* Занимаем всю высоту контейнера */
 }
 
 .carousel-item {
-    flex: 0 0 100%;
-    opacity: 0.5;
-    transform: scale(0.8);
-    transition: transform 0.5s ease, opacity 0.5s ease;
+    flex: 0 0 100%; /* Фиксированная ширина для каждого слайда */
+    text-align: center;
     display: flex;
-    justify-content: center;
+    align-items: center; /* Центрирование по вертикали */
+    justify-content: center; /* Центрирование по горизонтали */
+    height: 100%; /* Занимаем всю высоту контейнера */
 }
 
 .carousel-item img {
-    width: 80%;  /* Уменьшаем ширину изображения */
-    height: auto;  /* Высота сохраняет пропорции */
-    object-fit: cover; /* Обеспечивает, что изображение будет покрывать весь контейнер, не искажая пропорции */
-    border-radius: 10px; /* Радиус для скругленных углов */
+    max-width: 100%; /* Ограничение по ширине */
+    max-height: 100%; /* Ограничение по высоте */
+    object-fit: contain; /* Сохраняет пропорции изображения */
+    border-radius: 10px; /* Скругление углов изображения */
 }
 
 .carousel-item.active {
@@ -233,6 +418,72 @@ footer {
 .carousel-control:hover {
     color: #555;
 }
+
+/* Стиль для кнопки, которая будет открывать/закрывать блок */
+.toggle-rights-btn {
+    background-color: #4CAF50; /* Зеленый фон для кнопки */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    display: block; /* Чтобы кнопка была на новой строке */
+    margin-left: auto; /* Центрируем кнопку по горизонтали */
+    margin-right: auto; /* Центрируем кнопку по горизонтали */
+}
+
+/* Скрываем блок по умолчанию */
+.rights-content {
+    padding-left: 20px;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    margin-top: 0;
+    transition:
+        max-height 0.5s ease-out,
+        opacity 0.3s ease 0.1s,
+        margin-top 0.3s ease;
+    width: 100%; /* Важно! */
+    box-sizing: border-box; /* Учитываем padding в высоте */
+}
+
+.rights-content.show {
+    max-height: 8000px; /* Больше, чем максимальная возможная высота */
+    opacity: 1;
+    margin-top: 20px;
+}
+
+/* Заголовки внутри */
+.rights-content h3 {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Стиль для списков внутри контента */
+.rights-content ul {
+    font-size: 22px; /* Было 16px, стало больше */
+    list-style-type: disc;
+    padding-left: 20px;
+    text-align: left; /* Выравнивание текста в списке по левому краю */
+}
+
+/* Списки */
+.rights-content ul,
+.rights-content ol {
+    font-size: 22px;
+    padding-left: 20px;
+    text-align: left;
+}
+
+.rights-content ul li,
+.rights-content ol li {
+    margin-bottom: 8px;
+}
+
 
 /* Индикаторы */
 .carousel-indicators {
@@ -270,8 +521,9 @@ footer {
 }
 
 .contact-info {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     margin-top: 20px;
+    text-align: center;
 }
 
 /* Стили для ссылок */
@@ -285,9 +537,8 @@ footer {
     text-decoration: underline;
 }
 
-
-
 .social-links {
+    font-size: 1.5rem;
     display: flex;            /* Используем Flexbox для горизонтального расположения */
     justify-content: center;  /* Центрируем иконки по горизонтали */
     align-items: center;      /* Центрируем иконки по вертикали */
@@ -297,7 +548,6 @@ footer {
 .social-links a {
     margin: 0 5px;           /* Отступы между иконками */
     padding: 12px;            /* Отступы вокруг иконки для создания фона */
-    background-color: #white; /* Светлый фон вокруг иконки */
     border-radius: 5px;       /* Сглаживаем углы фона */
     transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; /* Плавные анимации */
     display: inline-block;    /* Позволяет использовать отступы и тень */
@@ -306,7 +556,7 @@ footer {
 
 .social-links a:hover {
     transform: scale(1.1);    /* Увеличиваем размер иконки при наведении */
-    background-color: #D8C3A5; /* Меняем фон при наведении */
+    background-color: white; /* Меняем фон при наведении */
     box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2); /* Добавляем тень */
     border-radius: 10px;       /* Увеличиваем радиус углов при наведении */
 }
@@ -319,9 +569,155 @@ footer {
     margin: 0 auto;           /* Центрируем иконку внутри контейнера */
 }
 
+.test-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрирует элементы по горизонтали */
+    justify-content: flex-start; /* Элементы будут располагаться сверху */
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.work-section {
+    margin: 40px auto;
+    max-width: 90%;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    background: white;
+    display: block;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center; /* Если нужно центрировать заголовки */
+    padding: 50px 20px;
+    width: 100%; /* Добавь, если нужно растянуть на всю ширину */
+}
+
+.test-container {
+    display: flex;              /* Включаем flexbox */
+    justify-content: space-between; /* Размещаем элементы с промежутками */
+    gap: 20px;                  /* Добавляем отступы между элементами */
+    max-width: 800px; /* Увеличенная ширина */
+    width: 100%;
+    min-width: 800px; /* Минимальная ширина, чтобы не сужалось */
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    text-align: center;
+
+}
+
+.test-btn {
+    background-color: #4CAF50; /* Цвет фона по умолчанию */
+    color: white;              /* Цвет текста */
+    padding: 12px 24px;        /* Отступы внутри кнопки */
+    border: none;              /* Убираем рамку */
+    border-radius: 8px;        /* Скругляем углы */
+    font-size: 16px;           /* Размер шрифта */
+    cursor: pointer;          /* Курсор изменится на указатель */
+    transition: all 0.3s ease; /* Плавные переходы */
+    text-decoration: none;     /* Убираем подчеркивание, если это ссылка */
+}
+
+.test-btn:hover {
+    background-color: #45a049; /* Цвет фона при наведении */
+}
+
+.test-btn:active {
+    background-color: #388e3c; /* Цвет фона при нажатии */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Тень при нажатии */
+    transform: translateY(2px); /* Легкое смещение кнопки вниз */
+}
+
+.test-card {
+    flex: 1;
+    padding: 20px;
+    background: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column; /* Сделаем элементы вертикальными */
+    justify-content: space-between; /* Равномерно распределим элементы внутри карточки */
+}
+/* Заголовок теста */
+.test-container h2 {
+    font-size: 2.5rem;
+    color: #2a3d42;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Вопрос */
+#question {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 20px;
+    max-width: 100%;
+    width: 100%;
+    word-wrap: break-word; /* Перенос длинных слов */
+}
+
+/* Контейнер с ответами */
+#answers {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 100%;
+    width: 100%;
+}
+
+/* Кнопки ответов */
+.answer-btn {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.answer-btn:hover {
+    background: #D8C3A5;
+    transform: scale(1.05);
+}
+
+/* Прогресс теста */
+#progress {
+    margin-top: 20px;
+    width: 100%;
+    height: 35px; /* Сделал чуть выше */
+    background: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Заполнение прогресса */
+#progress div {
+    height: 100%;
+    width: 0%; /* Прогресс начинается с 0 */
+    background: linear-gradient(90deg, #4CAF50, #2E7D32);
+    transition: width 0.4s ease-in-out;
+}
+
+/* Результаты теста */
+#result {
+    font-size: 1.8rem;
+    color: #2a3d42;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+
+
+
 @media (max-width: 768px) {
     .carousel-item img {
-        width: 60%;  /* Уменьшаем изображение на мобильных устройствах */
+        width: 80%;  /* Уменьшаем изображение на мобильных устройствах */
     }
     .social-links {
         margin-top: 10px;     /* Меньший отступ сверху на мобильных устройствах */
@@ -335,4 +731,43 @@ footer {
         width: 35px;          /* Уменьшаем размер иконок на мобильных устройствах */
         height: 35px;
     }
+
+    .about-me,
+    .about-me.reverse{
+        flex-direction: column;
+        text-align: center;
+        max-width: 90%; /* Ограничиваем ширину */
+        margin: 20px auto; /* Центрируем */
+        padding: 15px; /* Добавляем отступ */
+    }
+
+    .profile-photo,
+    .profile-photo-left {
+        width: 60%; /* Уменьшаем ширину фото */
+        max-width: 180px; /* Делаем меньше */
+        height: auto; /* Сохраняем пропорции */
+        margin-bottom: 10px;
+    }
+
+    .description,
+    .description-left {
+        font-size: 1.2rem; /* Делаем текст чуть меньше */
+        line-height: 1.5; /* Уменьшаем расстояние между строками */
+    }
+
+    .mainup, .about-me-section {
+    flex-direction: column !important;
+    flex-direction: column;
+    align-items: center;
+    }
+
+  .profile-photo {
+    width: 90%;
+    height: auto;
+  }
+
+  .test-container {
+    flex-direction: column;
+    min-width: unset;
+  }
 }
