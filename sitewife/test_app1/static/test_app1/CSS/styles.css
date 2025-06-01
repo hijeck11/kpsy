@@ -897,9 +897,14 @@ h2 {
         margin: 20px auto !important;
         padding: 15px;
         box-sizing: border-box;
-        flex-direction: column;
+        flex-direction: row;
         text-align: center;
     }
+
+    .about-me-reviews{
+    flex-direction: column;
+    }
+
 
     .rights-content {
         font-size: 16px;
