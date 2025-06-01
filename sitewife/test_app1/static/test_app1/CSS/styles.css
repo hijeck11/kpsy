@@ -321,19 +321,6 @@ h2 {
     transform: translateX(0);
 }
 
-.carousel {
-    position: relative;
-    max-height: 80vh; /* Максимальная высота контейнера */
-    max-width: 850px; /* Максимальная ширина контейнера */
-    margin: 20px auto; /* Центрирование контейнера */
-    overflow: hidden; /* Скрывает всё, что выходит за пределы */
-    border-radius: 10px; /* Скругление углов */
-    display: flex;
-    align-items: center; /* Центрирование по вертикали */
-    justify-content: center; /* Центрирование по горизонтали */
-    height: 700px; /* Фиксированная высота контейнера */
-    width: 100%; /* Ширина контейнера (можно задать фиксированную, например, 750px) */
-}
 
 /* Заголовок "Отзывы" */
 .reviews-title {
@@ -364,6 +351,20 @@ h2 {
 
 .review-item:hover {
     transform: scale(1.1);          /* Увеличиваем изображение при наведении */
+}
+
+.carousel {
+    position: relative;
+    max-height: 80vh; /* Максимальная высота контейнера */
+    max-width: 850px; /* Максимальная ширина контейнера */
+    margin: 20px auto; /* Центрирование контейнера */
+    overflow: hidden; /* Скрывает всё, что выходит за пределы */
+    border-radius: 10px; /* Скругление углов */
+    display: flex;
+    align-items: center; /* Центрирование по вертикали */
+    justify-content: center; /* Центрирование по горизонтали */
+    height: 700px; /* Фиксированная высота контейнера */
+    width: 100%; /* Ширина контейнера (можно задать фиксированную, например, 750px) */
 }
 
 .carousel-track {
@@ -464,14 +465,6 @@ h2 {
 }
 
 /* Стиль для списков внутри контента */
-.rights-content ul {
-    font-size: 22px; /* Было 16px, стало больше */
-    list-style-type: disc;
-    padding-left: 20px;
-    text-align: left; /* Выравнивание текста в списке по левому краю */
-}
-
-/* Списки */
 .rights-content ul,
 .rights-content ol {
     font-size: 22px;
@@ -479,11 +472,33 @@ h2 {
     text-align: left;
 }
 
-.rights-content ul li,
-.rights-content ol li {
-    margin-bottom: 8px;
+/* Только для маркированного списка */
+.rights-content ul {
+    list-style-type: disc;
 }
 
+/* Только для нумерованного списка (если нужно явно указать) */
+.rights-content ol {
+    list-style-type: decimal;
+}
+
+/* Стиль для списков внутри контента */
+.description ul,
+.description ol {
+    font-size: 20px;
+    padding-left: 20px;
+    text-align: left;
+}
+
+/* Только для маркированного списка */
+.description ul {
+    list-style-type: disc;
+}
+
+/* Только для нумерованного списка (если нужно явно указать) */
+.description ol {
+    list-style-type: decimal;
+}
 
 /* Индикаторы */
 .carousel-indicators {
@@ -506,18 +521,6 @@ h2 {
 .indicator.active {
     background-color: black;
     transform: scale(1.3);
-}
-
-.map-container {
-    margin-top: 20px;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Немного тени вокруг карты */
-}
-
-.map {
-    width: 100%;
-    height: 400px; /* Размер карты, можно регулировать */
 }
 
 .contact-info {
@@ -578,6 +581,20 @@ h2 {
     padding: 50px 20px;
 }
 
+.test-container {
+    display: flex;              /* Включаем flexbox */
+    justify-content: space-between; /* Размещаем элементы с промежутками */
+    gap: 20px;                  /* Добавляем отступы между элементами */
+    max-width: 800px; /* Увеличенная ширина */
+    width: 100%;
+    min-width: 800px; /* Минимальная ширина, чтобы не сужалось */
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
 .work-section {
     margin: 40px auto;
     max-width: 90%;
@@ -591,21 +608,6 @@ h2 {
     text-align: center; /* Если нужно центрировать заголовки */
     padding: 50px 20px;
     width: 100%; /* Добавь, если нужно растянуть на всю ширину */
-}
-
-.test-container {
-    display: flex;              /* Включаем flexbox */
-    justify-content: space-between; /* Размещаем элементы с промежутками */
-    gap: 20px;                  /* Добавляем отступы между элементами */
-    max-width: 800px; /* Увеличенная ширина */
-    width: 100%;
-    min-width: 800px; /* Минимальная ширина, чтобы не сужалось */
-    margin: 40px auto;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    text-align: center;
-
 }
 
 .test-btn {
@@ -716,35 +718,45 @@ h2 {
 
 
 @media (max-width: 768px) {
-    .carousel-item img {
-        width: 80%;  /* Уменьшаем изображение на мобильных устройствах */
-    }
-    .social-links {
-        margin-top: 10px;     /* Меньший отступ сверху на мобильных устройствах */
-    }
-
-    .social-links a {
-        margin: 0 10px;       /* Меньшие отступы между иконками */
+    html, body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden; /* Убираем горизонтальную прокрутку */
+        background: none !important;
+        background-color: #fff;
     }
 
-    .social-links img {
-        width: 35px;          /* Уменьшаем размер иконок на мобильных устройствах */
-        height: 35px;
+    main {
+        margin: 0 !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        padding: 16px !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        background: linear-gradient(#EAE7DC, #D8C3A5) fixed !important;
     }
 
     .about-me,
-    .about-me.reverse{
+    .about-me.reverse,
+    .about-me-combined,
+    .work-section {
         flex-direction: column;
         text-align: center;
-        max-width: 90%; /* Ограничиваем ширину */
-        margin: 20px auto; /* Центрируем */
-        padding: 15px; /* Добавляем отступ */
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 20px auto !important;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+
+    .carousel-item img {
+        width: 100%;  /* Уменьшаем изображение на мобильных устройствах */
     }
 
     .profile-photo,
     .profile-photo-left {
-        width: 60%; /* Уменьшаем ширину фото */
-        max-width: 180px; /* Делаем меньше */
+        width: 100%; /* Уменьшаем ширину фото */
+        max-width: 300px; /* Делаем меньше */
         height: auto; /* Сохраняем пропорции */
         margin-bottom: 10px;
     }
@@ -756,18 +768,172 @@ h2 {
     }
 
     .mainup, .about-me-section {
-    flex-direction: column !important;
-    flex-direction: column;
-    align-items: center;
+        flex-direction: column !important;
+        flex-direction: column;
+        align-items: center;
     }
 
-  .profile-photo {
-    width: 90%;
-    height: auto;
-  }
+    .carousel {
+        height: auto; /* Убираем фиксированную высоту */
+        max-height: none;
+        padding: 10px 0;
+    }
 
-  .test-container {
-    flex-direction: column;
-    min-width: unset;
-  }
+    .carousel-track,
+    .carousel-item {
+        height: auto; /* Делаем высоту по содержимому */
+    }
+
+    .carousel-item img {
+        width: 90%;
+        height: auto;
+        max-height: 70vh; /* ограничим по высоте экрана */
+        object-fit: contain;
+    }
+
+    .contact-info {
+        font-size: 1.1rem; /* Уменьшенный размер шрифта */
+        margin-top: 15px;
+        padding: 0 10px;   /* Немного отступов по бокам */
+    }
+
+    .social-links {
+        flex-wrap: wrap;           /* Позволяем перенос строк */
+        font-size: 1.1rem;         /* Уменьшаем шрифт заголовка */
+        margin-top: 15px;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .social-links h2 {
+        width: 100%;
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+    }
+
+    .social-links a {
+        margin: 5px;
+        padding: 8px;
+    }
+
+    .social-links img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .test-section {
+        padding: 30px 10px; /* Меньше внутренних отступов */
+    }
+
+    .test-container {
+        flex-direction: column; /* Переводим в колонку */
+        min-width: unset;       /* Убираем фиксированную минимальную ширину */
+        padding: 20px 15px;     /* Меньше отступов */
+        margin: 20px auto;      /* Меньше внешних отступов */
+        width: 100%;
+    }
+
+    .test-card {
+        width: 100%;
+    }
+
+    .test-btn {
+        font-size: 1rem;
+        padding: 10px 15px;
+    }
+
+    .about-me-reviews {
+        padding: 10px;
+    }
+
+    .reviews-gallery {
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .review-item {
+        width: 45%;
+        max-width: 150px; /* или 45%, если хочешь по 2 в ряд */
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .rights-content {
+        font-size: 16px; /* или любой подходящий размер */
+    }
+
+    .rights-content ul,
+    .rights-content ol {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 1024px) and (orientation: landscape) {
+    html, body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        background: none !important;
+        background-color: #fff;
+    }
+
+    main {
+        margin: 0 !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        padding: 16px !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        background: linear-gradient(#EAE7DC, #D8C3A5) fixed !important;
+    }
+
+    .about-me,
+    .about-me.reverse,
+    .about-me-combined,
+    .work-section {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 20px auto !important;
+        padding: 15px;
+        box-sizing: border-box;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .rights-content {
+        font-size: 16px;
+    }
+
+    .rights-content ul,
+    .rights-content ol {
+        font-size: 16px;
+    }
+
+    .review-item {
+        width: 40%;
+        max-width: 180px;
+    }
+
+    .test-container {
+        flex-direction: column;
+        padding: 20px 15px;
+        width: 100%;
+    }
+
+    .profile-photo,
+    .profile-photo-left {
+        max-width: 250px;
+        width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+    }
+
+    .description,
+    .description-left {
+        font-size: 1.1rem;
+        line-height: 1.5;
+    }
+
+    /* можно добавить другие стили по аналогии */
 }
