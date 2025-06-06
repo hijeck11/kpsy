@@ -1,3 +1,4 @@
+
 /* Reset стилей браузера */
 * {
     margin: 0;
@@ -436,6 +437,7 @@ h2 {
 }
 
 /* Скрываем блок по умолчанию */
+
 .rights-content {
     padding-left: 20px;
     max-height: 0;
@@ -443,17 +445,17 @@ h2 {
     opacity: 0;
     margin-top: 0;
     transition:
-        max-height 0.5s ease-out,
-        opacity 0.3s ease 0.1s,
-        margin-top 0.3s ease;
-    width: 100%; /* Важно! */
-    box-sizing: border-box; /* Учитываем padding в высоте */
+    max-height 0.5s ease-out,
+    opacity 0.3s ease 0.1s,
+    margin-top 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
 }
 
+
 .rights-content.show {
-    max-height: 8000px; /* Больше, чем максимальная возможная высота */
-    opacity: 1;
-    margin-top: 20px;
+  opacity: 1;
+  margin-top: 20px;
 }
 
 /* Заголовки внутри */
@@ -579,26 +581,19 @@ h2 {
 }
 
 .test-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Центрирует элементы по горизонтали */
-    justify-content: flex-start; /* Элементы будут располагаться сверху */
-    text-align: center;
-    padding: 50px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; /* Или просто убери эту строку */
+  width: 100%;
+  text-align: center;
 }
 
 .test-container {
-    display: flex;              /* Включаем flexbox */
-    justify-content: space-between; /* Размещаем элементы с промежутками */
-    gap: 20px;                  /* Добавляем отступы между элементами */
-    max-width: 800px; /* Увеличенная ширина */
-    width: 100%;
-    min-width: 800px; /* Минимальная ширина, чтобы не сужалось */
-    margin: 40px auto;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    text-align: center;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 30px;
+  box-sizing: border-box;
 }
 
 .work-section {
@@ -638,17 +633,14 @@ h2 {
     transform: translateY(2px); /* Легкое смещение кнопки вниз */
 }
 
-.test-card {
-    flex: 1;
-    padding: 20px;
-    background: #f4f4f4;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    display: flex;
-    flex-direction: column; /* Сделаем элементы вертикальными */
-    justify-content: space-between; /* Равномерно распределим элементы внутри карточки */
+
+
+
+.test-form {
+    width: 100%;
+    margin-top: 20px;
 }
+
 /* Заголовок теста */
 .test-container h2 {
     font-size: 2.5rem;
@@ -719,8 +711,6 @@ h2 {
     font-weight: bold;
     margin-top: 20px;
 }
-
-
 
 
 @media (max-width: 768px) {
@@ -866,7 +856,10 @@ h2 {
     }
 
     .rights-content {
-        font-size: 16px; /* или любой подходящий размер */
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: 14px;
+        line-height: 1.4;
     }
 
     .rights-content ul,
