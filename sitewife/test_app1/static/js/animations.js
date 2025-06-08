@@ -1,20 +1,23 @@
-document.addEventListener("DOMContentLoaded", function () {
-    // 1. Плавное появление about-me и about-me-combined
+document.addEventListener("DOMContentLoaded", function() {
     const aboutSections = document.querySelectorAll(".about-me, .about-me-combined, .work-section");
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
+            if (entry.intersectionRatio > 0.2) {  // Было 0.5, теперь 0.2 (появляется раньше)
                 entry.target.classList.add("show");
-            } else {
+            } else if (entry.intersectionRatio < 0.05) {  // Было 0.1, теперь 0.05 (исчезает позже)
                 entry.target.classList.remove("show");
             }
         });
-    }, { threshold: 0.2 });
+    }, {
+        threshold: [0.05, 0.2, 0.5]  // Более плавные границы срабатывания
+    });
 
     aboutSections.forEach(section => {
         observer.observe(section);
     });
+
+
 
     // 2. Анимация выезда только для .mainup
     const mainupSection = document.querySelector(".mainup");

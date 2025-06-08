@@ -51,14 +51,6 @@ footer {
   z-index: 1000; /* чтобы футер был поверх других элементов */
 }
 
-.scroll-element {
-    opacity: 0;
-    transition: opacity 1s;
-}
-
-.scroll-element.visible {
-    opacity: 1;
-}
 
 /* Стили для header */
 header {
@@ -177,7 +169,7 @@ h2 {
 
 .about-me {
     opacity: 0; /* Изначально скрываем блоки */
-    transform: translateY(50px); /* Смещение вниз */
+    transform: translateY(30px); /* Смещение вниз */
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
     display: flex;
     align-items: center;
@@ -191,6 +183,13 @@ h2 {
     justify-content: center;
 }
 
+.about-me,
+.about-me-combined,
+.work-section {
+    will-change: opacity, transform;
+    backface-visibility: hidden;
+}
+
 .about-me.show {
     opacity: 1;
     transform: translateY(0);
@@ -202,7 +201,7 @@ h2 {
 
 .about-me-combined {
     opacity: 0;
-    transform: translateY(50px);
+    transform: translateY(30px);
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
     margin: 40px auto;
     max-width: 90%;
@@ -460,7 +459,7 @@ h2 {
 
 /* Заголовки внутри */
 .rights-content h3 {
-    font-size: 26px;
+    font-size: 20px;
     font-weight: bold;
     margin-bottom: 10px;
     text-align: center;
@@ -869,6 +868,7 @@ h2 {
     .rights-content ol {
         font-size: 16px;
     }
+
 }
 
 @media (max-width: 1024px) and (orientation: landscape) {
